@@ -5,6 +5,7 @@ from Crypto.Cipher import PKCS1_OAEP
 from Crypto.Hash import HMAC, SHA256
 from base64 import urlsafe_b64encode as enc
 from base64 import urlsafe_b64decode as dec
+from base64 import b64encode
 import requests
 import json
 import re
@@ -61,6 +62,7 @@ e = 0x10001
 public_key = RSA.construct((n, e)).export_key()
 public_key = public_key + b'\n'     # fix for openssl
 print(public_key.decode())
+print('BASE64 ENCODED KEY: {}'.format(b64encode(public_key)))
 
 # forging an admin token
 header = enc(json.dumps({'alg': 'HS256'}).encode()).strip(b'=')
