@@ -1,0 +1,6 @@
+{
+    "require": {
+        "gree/jose": "^2.2",
+        "twig/twig": "^3.0"
+    }
+}
